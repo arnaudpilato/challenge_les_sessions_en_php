@@ -1,9 +1,16 @@
 <?php
 session_start();
-if (isset($_POST['loginname'])) {
-    $_SESSION['loginname'] = $_POST['loginname'];
-    header('location: index.php');
-    exit();
+define('LOGIN','Pil');
+if (!empty($_POST)) {
+    if (!empty($_POST['loginname'])) {
+        if ($_POST['loginname'] !== LOGIN) {
+            echo 'Try again !';
+        } else {
+            $_SESSION['loginname'] = LOGIN;
+            header('Location: index.php');
+            exit();
+        }
+    }
 }
 
 if (isset($_GET['add_to_cart'])) {
