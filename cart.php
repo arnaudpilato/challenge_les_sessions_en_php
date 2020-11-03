@@ -1,5 +1,9 @@
 <?php require 'inc/head.php';
 require 'inc/data/products.php';?>
+<?php
+if (empty($_SESSION['loginname'])) {
+    header('Location: login.php');
+}?>
 <section class="cookies container-fluid">
     <div class="row"><?php
         if (!isset($_SESSION['carts'])) { ?>
